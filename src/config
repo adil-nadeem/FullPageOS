@@ -1,4 +1,4 @@
-export DIST_NAME=FullpageOS
+export DIST_NAME=EasyDOS
 export DIST_VERSION=0.12.0
 export MODULES="base(raspicam, network, disable-services(gui(fullpageos), usage-statistics))"
 
