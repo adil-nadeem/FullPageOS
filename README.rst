@@ -3,13 +3,13 @@ How to use it?
 --------------
 
 #. Unzip the image and install it to an SD card `like any other Raspberry Pi image <https://www.raspberrypi.org/documentation/installation/installing-images/README.md>`_
-#. Configure your WiFi by editing ``fullpageos-wpa-supplicant.txt`` on the first partition of the flashed card when using it like a flash drive
+#. Configure your WiFi by editing ``easydosos-wpa-supplicant.txt`` on the first partition of the flashed card when using it like a flash drive
 #. Boot the Pi from the SD card
-#. Log into your Pi via SSH (it is located at ``fullpageos.local`` `if your computer supports bonjour <https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview>`_ or the IP address assigned by your router), default username is "pi", default password is "raspberry", change the password using the ``passwd`` command and expand the filesystem of the SD card through the corresponding option when running ``sudo raspi-config``.
+#. Log into your Pi via SSH (it is located at ``easydosos.local`` `if your computer supports bonjour <https://learn.adafruit.com/bonjour-zeroconf-networking-for-windows-and-linux/overview>`_ or the IP address assigned by your router), default username is "pi", default password is "raspberry", change the password using the ``passwd`` command and expand the filesystem of the SD card through the corresponding option when running ``sudo raspi-config``.
 
 Requirements
 ------------
-* Raspberry Pi 2 and newer or device running Armbian. Older Raspberry Pis are not currently supported.  See `Raspberry Pi <https://github.com/guysoft/FullPageOS/issues/12>`_ and `Raspberry Pi <https://github.com/guysoft/FullPageOS/issues/43>`_.
+* Raspberry Pi 2 and newer or device running Armbian.
 * SD card, 4GB or larger, Class 10. (Early June 2020 was the image size 3GB.)
 * 2A power supply
 
