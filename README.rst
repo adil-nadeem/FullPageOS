@@ -1,30 +1,3 @@
-FullPageOS
-==========
-
-.. image:: https://raw.githubusercontent.com/guysoft/FullPageOS/devel/media/FullPageOS.png
-.. :scale: 50 %
-.. :alt: FullPageOS logo
-
-A `Raspberry Pi <http://www.raspberrypi.org/>`_ distribution to display one webpage in full screen. It includes `Chromium <https://www.chromium.org/>`_ out of the box and the scripts necessary to load it at boot.
-This repository contains the source script to generate the distribution out of an existing `Raspbian <http://www.raspbian.org/>`_ distro image.
-
-FullPageOS is a fork of `OctoPi <https://github.com/guysoft/OctoPi>`_
-
-Donate
-------
-FullPageOS is 100% free and open source and maintained by Guy Sheffer. If its helping your life, your organisation or makes you happy, please consider making a donation. It means I can code more and worry less about my balance. Any amount counts.
-
-|paypal|
-
-.. |paypal| image:: https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif
-   :target: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=26VJ9MSBH3V3W&source=url
-
-Where to get it?
-----------------
-
-Official mirror is `here <http://unofficialpi.org/Distros/FullPageOS/>`_
-
-Nightly builds are available `here <http://unofficialpi.org/Distros/FullPageOS/nightly/>`_ (currently built on demand)
 
 How to use it?
 --------------
@@ -74,8 +47,8 @@ You can build it by issuing the following commands::
 
     sudo apt install coreutils p7zip-full qemu-user-static
     
-    git clone https://github.com/guysoft/CustomPiOS.git
-    git clone https://github.com/guysoft/FullPageOS.git
+    git clone https://github.com/adil-nadeem/CustomPiOS.git
+    git clone https://github.com/adil-nadeem/FullPageOS.git
     cd FullPageOS/src/image
     wget -c --trust-server-names 'https://downloads.raspberrypi.org/raspios_lite_armhf_latest'
     cd ..
@@ -83,52 +56,3 @@ You can build it by issuing the following commands::
     sudo modprobe loop
     sudo bash -x ./build_dist
     
-Building FullPageOS Variants
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-FullPageOS supports building variants, which are builds with changes from the main release build. An example and other variants are available in the folder ``src/variants/example``.
-
-To build a variant use::
-
-    sudo bash -x ./build_dist [Variant]
-    
-    
-Building Using Docker
-~~~~~~~~~~~~~~~~~~~~~~
-`See Building with docker entry in wiki <https://github.com/guysoft/CustomPiOS/wiki/Building-with-Docker>`_
-
-    
-Building Using Vagrant
-~~~~~~~~~~~~~~~~~~~~~~
-There is a vagrant machine configuration to let build FullPageOS in case your build environment behaves differently. Unless you do extra configuration, vagrant must run as root to have nfs folder sync working.
-
-Make sure you have a version of vagrant later than 1.9!
-
-If you are using older versions of Ubuntu/Debian and not using apt-get `from the download page <https://www.vagrantup.com/downloads.html>`_.
-
-To use it::
-
-    sudo apt-get install vagrant nfs-kernel-server virtualbox
-    sudo vagrant plugin install vagrant-nfs_guest
-    sudo modprobe nfs
-    cd FullPageOS/src/vagrant
-    sudo vagrant up
-
-After provisioning the machine, its also possible to run a nightly build which updates from devel using::
-
-    cd FullPageOS/src/vagrant
-    run_vagrant_build.sh
-    
-To build a variant on the machine simply run::
-
-    cd FullPageOS/src/vagrant
-    run_vagrant_build.sh [Variant]
-
-Usage
-~~~~~
-
-#. If needed, override existing config settings by creating a new file ``src/config.local``. You can override all settings found in ``src/config``. If you need to override the path to the Raspbian image to use for building OctoPi, override the path to be used in ``ZIP_IMG``. By default, the most recent file matching ``*-raspbian.zip`` found in ``src/image`` will be used.
-#. Run ``src/build_dist`` as root.
-#. The final image will be created in ``src/workspace``
-
-Code contribution would be appreciated!
